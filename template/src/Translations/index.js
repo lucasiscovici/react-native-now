@@ -16,7 +16,7 @@ i18n.use(initReactI18next).init({
 	resources,
 	fallbackLng: 'en',
 	lng: getLocales()?.[0]?.languageTag,
-	debug: true,
+	debug: process.env.NODE_ENV !== 'production',
 	interpolation: {
 		escapeValue: false, // not needed for react as it does escape per default to prevent xss!
 	},

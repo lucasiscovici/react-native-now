@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ActivityIndicator } from 'react-native'
 import { Brand } from '@/Components'
 import { useTranslation } from 'react-i18next'
-import { selectors as themeSelectors } from '@/State/Theme'
+import { actions as ThemeActions } from '@/State/Theme'
 
 import {
   actions as userActions,
@@ -21,7 +21,6 @@ const IndexExampleContainer = () => {
 
   const user = userSelectors.get()
   const fetchOneUserLoading = !userSelectors.isStatusFinish()
-  console.log(fetchOneUserLoading)
 
   const error = userSelectors.getError()
 
@@ -35,7 +34,7 @@ const IndexExampleContainer = () => {
   }
 
   const changeTheme = async ({ theme, darkMode }) =>
-    execute(themeSelectors.changeTheme, { theme, darkMode })
+    execute(ThemeActions.changeTheme, { theme, darkMode })
 
   return (
     <Box flex={1} variant="colCenter" px="s">
@@ -62,7 +61,7 @@ const IndexExampleContainer = () => {
           onChangeText={(text) => fetch(text)}
           editable={!fetchOneUserLoading}
           keyboardType={'number-pad'}
-          maxLength={1}
+          maxLength={2}
           value={userId}
           selectTextOnFocus
         />
