@@ -1,0 +1,25 @@
+{
+  "name": "react-native-now",
+  "version": "1.0.0",
+  "description": "React Native Boilerplate Now",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasiscoviciMoon/react-native-now.git"
+  },
+  "author": "LucasiscoviciMoon <lucas.iscovici@moonhealth.ai>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucasiscoviciMoon/react-native-now/issues"
+  },
+  "homepage": "https://github.com/lucasiscoviciMoon/react-native-now#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "boilerplate",
+    "react-native",
+    "starter-kit"
+  ]
+}

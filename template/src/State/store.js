@@ -1,0 +1,68 @@
+import {
+  createStore,
+  // configure,
+} from 'redox'
+
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
+
+// for react-native
+// import AsyncStorage from '@react-native-community/async-storage';
+
+// if needed (BEFORE IMPORTING SLICES)
+// configure({
+//     modules: {}, // object with modules
+//     usePrf: true, // use default modules PRF
+//     cleanIfCalledMultipleTimes: true, // if configure is called multiples times it's reset the modules
+// })
+
+// slices
+// import {SLICE_NAME} from './FEATURE_DIR'
+import { User } from './User'
+import { Theme } from './Theme'
+import { Startup } from './Startup'
+const {
+  Provider,
+  // store,
+  // clearState,
+} = createStore({
+  slices: {
+    // initialState: {},
+    // SLICE_NAME
+    User,
+    Theme,
+    Startup,
+  },
+  configureStoreOpts: {
+    middleware: (getDefaultMiddleware) => {
+      const middlewares = getDefaultMiddleware({
+        immutableCheck: false,
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      })
+
+      if (__DEV__ && !process.env.JEST_WORKER_ID) {
+        const createDebugger = require('redux-flipper').default
+        middlewares.push(createDebugger())
+      }
+      return middlewares
+    },
+  },
+  // combineReducersOpts : {},
+  // reducers: {},
+  // for react-native
+  // persist: {storage: AsyncStorage},
+})
+
+export {
+  Provider,
+  // store,
+  // clearState
+}
