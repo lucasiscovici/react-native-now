@@ -8,5 +8,5 @@ export const Startup = () => ({
   // selectors: {}, //  ({getters, args}) | add selectors (when we combine getters or selectors)
   // reducers: {},
   // [ACTION.name]: (state, {payload}) => {},
-  [launch.name]: (state, { payload }) => {},
+  [launch.name]: () => {},
 })
