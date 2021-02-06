@@ -16,10 +16,10 @@ npm-debug.log
 yarn-error.log
 
 # Ignore specific files copying by RN CLI
-template/.gitignore
-template/.gitattributes
-template/.eslintrc.js
-template/.flowconfig
+# template/.gitignore
+# template/.gitattributes
+# template/.eslintrc.js
+# template/.flowconfig
 template/.buckconfig
-template/.prettierrc.js
+# template/.prettierrc.js
 template/.watchmanconfig
