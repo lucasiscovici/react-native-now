@@ -20,7 +20,7 @@ const IndexExampleContainer = () => {
   } = useApp()
 
   const user = userSelectors.get()
-  const fetchOneUserLoading = !userSelectors.isStatusFinish()
+  const fetchOneUserLoading = userSelectors.isPending()
 
   const error = userSelectors.getError()
 
