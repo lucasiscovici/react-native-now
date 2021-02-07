@@ -19,7 +19,7 @@
     "@react-navigation/stack": "^5.12.6",
     "@reduxjs/toolkit": "^1.5.0",
     "@shopify/restyle": "^1.4.0",
-    "@thecodingmachine/redux-toolkit-wrapper": "1.3.0",
+    "api-service": "https://github.com/lucasiscoviciMoon/api-service",
     "axios": "^0.21.1",
     "i18next": "^19.8.4",
     "lodash.isequal": "^4.5.0",

@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler'
 import './Translations'
+import './Services'
 import React from 'react'
 import { ThemeProvider, useGlobalTheme } from '@/Theme'
 import { Provider } from '@/State/store.js'

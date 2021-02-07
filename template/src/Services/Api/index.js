@@ -4,7 +4,6 @@ import { configure } from 'api-service'
 configure({
   baseUrl: Config.API_URL,
 })
-
 // configure auth
 
 // configure({
