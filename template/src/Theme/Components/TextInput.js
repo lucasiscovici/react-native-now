@@ -5,8 +5,8 @@ import { createVariant } from '@shopify/restyle'
 
 const variant = createVariant({ themeKey: 'textInputVariants' })
 const TextInput = createRestyleComponent(
-	[...textRestyleFunctions.filter((tx) => !tx?.variant), fSize, variant],
-	TextTN,
+  [...textRestyleFunctions.filter((tx) => !tx?.variant), fSize, variant],
+  TextTN,
 )
 
 export default TextInput

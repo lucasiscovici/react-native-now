@@ -18,11 +18,11 @@ export default ({
   return (
     <>
       <SafeAreaView
-        style={[{ flex: 0, backgroundColor: bgColSafeArea1 }]}
+        style={{ flex: 0, backgroundColor: bgColSafeArea1 }}
         onLayout={onLayout}
       />
       <SafeAreaView
-        style={[{ flex: 1, backgroundColor: bgColSafeArea2 }]}
+        style={{ flex: 1, backgroundColor: bgColSafeArea2 }}
         onLayout={onLayout}
       >
         {children}

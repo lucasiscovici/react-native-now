@@ -5,8 +5,8 @@ import { height, width } from '@/Theme/Custom'
 
 const variant = createVariant({ themeKey: 'boxVariants' })
 const Box = createRestyleComponent(
-	[...boxRestyleFunctions, height, width, variant],
-	View,
+  [...boxRestyleFunctions, height, width, variant],
+  View,
 )
 
 export default Box

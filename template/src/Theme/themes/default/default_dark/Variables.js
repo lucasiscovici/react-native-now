@@ -12,14 +12,14 @@ import { Palette } from '../../../Variables'
  */
 
 export const AppColors = {
-	primary: Palette.white,
-	secondary: Palette.black,
-	success: Palette.red,
-	error: Palette.greenLight,
+  primary: Palette.white,
+  secondary: Palette.black,
+  success: Palette.red,
+  error: Palette.greenLight,
 }
 
 export const NavigationColors = {
-	primary: AppColors.primary,
+  primary: AppColors.primary,
 }
 
 export const Colors = { ...AppColors }

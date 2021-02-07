@@ -3,12 +3,12 @@ import * as actions from './actions'
 import { Theme } from './slice'
 
 const {
-	actions: createdActions,
-	getters,
-	selectors,
+  actions: createdActions,
+  getters,
+  selectors,
 } = createActionsGettersSelectors({
-	actions,
-	slice: Theme,
+  actions,
+  slice: Theme,
 })
 
 export { createdActions as actions, getters, selectors, Theme }

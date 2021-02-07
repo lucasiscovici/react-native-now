@@ -24,7 +24,6 @@ const ApplicationNavigator = () => {
   useEffect(() => {
     if (MainNavigator == null && !applicationIsLoading) {
       MainNavigator = require('@/Navigators/Main').default
-      // MainNavigator = require('@/Navigators/AuthentificationMain').default
       setIsApplicationLoaded(true)
     }
   }, [applicationIsLoading])
