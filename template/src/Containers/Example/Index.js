@@ -39,32 +39,59 @@ const IndexExampleContainer = () => {
         {error ? (
           <Text fSize="m">{error}</Text>
         ) : (
-          <Text fSize="m">{t('example.helloUser', { name: user?.name })}</Text>
+          <Text fSize="m" textAlign="center">
+            {t('example.helloUser', { name: `\n${user?.name ?? ''}` })}
+          </Text>
         )}
       </Box>
       <Box
-        flexDirection="row"
+        flexDirection="column"
         alignItems="center"
         px="s"
+        py="s"
         my="l"
         backgroundColor="primary"
+        borderRadius={5}
       >
         <Text textAlign="center">{t('example.labels.userId')}</Text>
         <TextInput
           variant="home"
-          flex={1}
           onChangeText={(text) => fetch(text)}
           editable={!fetchOneUserLoading}
           keyboardType={'number-pad'}
           maxLength={2}
           value={userId}
           selectTextOnFocus
+          px="s"
         />
       </Box>
       <Text fSize="m">DarkMode :</Text>
-      <Button onPress={() => changeTheme({ darkMode: null })} title="Auto" />
-      <Button onPress={() => changeTheme({ darkMode: true })} title="Dark" />
-      <Button onPress={() => changeTheme({ darkMode: false })} title="Light" />
+      <Button
+        onPress={() => changeTheme({ darkMode: null })}
+        title="Auto"
+        borderColor={'black'}
+        borderWidth={1}
+        alignItems="center"
+        w="xxl"
+      />
+      <Button
+        onPress={() => changeTheme({ darkMode: true })}
+        title="Dark"
+        borderColor={'white'}
+        borderWidth={1}
+        alignItems="center"
+        w="xxl"
+        backgroundColor="black"
+        textProps={{ color: 'primary' }}
+      />
+      <Button
+        onPress={() => changeTheme({ darkMode: false })}
+        title="Light"
+        borderColor={'black'}
+        borderWidth={1}
+        alignItems="center"
+        w="xxl"
+      />
     </Box>
   )
 }
