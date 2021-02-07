@@ -67,6 +67,13 @@ const xl = l + m // 45
 const xxl = l + 2 * m // 60
 
 export const Sizes = {
+  1: xxs,
+  2: xs,
+  3: s,
+  4: m,
+  5: l,
+  6: xl,
+  7: xxl,
   xxs,
   xs,
   s,
