@@ -39,7 +39,7 @@
     "redux": "^4.0.5",
     "redux-flipper": "^1.4.2",
     "redux-persist": "^6.0.0",
-    "zod": "2.0.0-beta.29"
+    "zod": "beta"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
