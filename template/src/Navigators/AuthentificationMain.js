@@ -8,22 +8,15 @@ import { actions as meActions, selectors as meSelectors } from '@/state/me'
 
 import { useNavigation } from '@react-navigation/native'
 
-import { useApp } from '@/'
-
 import { IndexExampleContainer } from '@/Containers'
 
 const AuthenticatedStack = () => {
-  const {
-    api: { dispatch },
-  } = useApp()
-
   const { navigate } = useNavigation()
 
   const isStatusFinish = meSelectors.isStatusFinish()
 
   React.useEffect(() => {
-    dispatch(meActions.getMe)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    meActions.getMe()
   }, [])
 
   React.useEffect(() => {

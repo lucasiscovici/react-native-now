@@ -9,15 +9,10 @@ import {
   selectors as userSelectors,
 } from '@/State/User'
 
-import { useApp } from '@/useApp'
-
 import { Box, Text, TextInput, Button } from '@/Theme'
 
 const IndexExampleContainer = () => {
   const { t } = useTranslation()
-  const {
-    api: { dispatch, execute },
-  } = useApp()
 
   const user = userSelectors.get()
   const fetchOneUserLoading = userSelectors.isPending()
@@ -29,12 +24,12 @@ const IndexExampleContainer = () => {
   const fetch = (id) => {
     setUserId(id)
     if (`${id}`.length > 0) {
-      dispatch(userActions.getUser, { userId: id })
+      userActions.getUser({ userId: id })
     }
   }
 
   const changeTheme = async ({ theme, darkMode }) =>
-    execute(ThemeActions.changeTheme, { theme, darkMode })
+    ThemeActions.changeTheme({ theme, darkMode })
 
   return (
     <Box flex={1} variant="colCenter" px="s">

@@ -6,18 +6,13 @@ import { Brand } from '@/Components'
 import { actions as startupActions } from '@/State/Startup'
 
 import { Box, Text } from '@/Theme'
-import { useApp } from '@/useApp'
 
 const IndexStartupContainer = () => {
-  const {
-    api: { dispatch },
-  } = useApp()
-
   const { t } = useTranslation()
 
   useEffect(() => {
-    dispatch(startupActions.launch)
-  }, [dispatch])
+    startupActions.launch()
+  }, [])
 
   return (
     <Box variant="colCenter" flex={1}>
