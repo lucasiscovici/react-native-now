@@ -1,4 +1,4 @@
 // export const ACTION = async ({}) => {};
-import { get } from '@/Services/User'
+import { userApi } from '@/Services/Api/User'
 
-export const getUser = async ({ api, userId }) => get(api, userId)
+export const getUser = async ({ userId }) => userApi.get({ userId })
