@@ -12,7 +12,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.13.2",
+    "@react-native-async-storage/async-storage": "^1.13.4",
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.1",
     "@react-navigation/native": "^5.9.0",
@@ -33,6 +34,7 @@
     "react-native-localize": "^2.0.1",
     "react-native-reanimated": "^1.13.0",
     "react-native-safe-area-context": "^3.1.9",
+    "react-native-safe-area-view": "^1.1.1",
     "react-native-screens": "^2.14.0",
     "react-redux": "^7.2.2",
     "redox": "https://github.com/lucasiscoviciMoon/redox",
