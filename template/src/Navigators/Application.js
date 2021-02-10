@@ -5,25 +5,21 @@ import { NavigationContainer } from '@react-navigation/native'
 import { navigationRef } from '@/Navigators/Root'
 import { StatusBar } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-
 import { useTheme } from '@/Theme'
 import { AppearanceProvider } from 'react-native-appearance'
 
 import { selectors as startupSelectors } from '@/State/Startup'
 import { navigateAndSimpleReset } from '@/Navigators/Root'
-const Stack = createStackNavigator()
 
 let MainNavigator
+const Stack = createStackNavigator()
 
-// @refresh reset
-const ApplicationNavigator = () => {
-  const theme = useTheme()
+const ApplicationNavigation = () => {
   const [isApplicationLoaded, setIsApplicationLoaded] = useState(false)
   const applicationIsLoading = startupSelectors.isPending() //useSelector((state) => state.startup.loading)
-
   useEffect(() => {
     if (MainNavigator == null && !applicationIsLoading) {
-      MainNavigator = require('@/Navigators/Main').default
+      MainNavigator = require('@/Navigators/AuthentificationMain').default
       setIsApplicationLoaded(true)
     }
   }, [applicationIsLoading])
@@ -44,8 +40,27 @@ const ApplicationNavigator = () => {
     [],
   )
 
-  /*  <SafeAreaView style={[Layout.fill, { backgroundColor: colors.card }]}>*/
+  return (
+    <Stack.Navigator headerMode={'none'}>
+      <Stack.Screen name="Startup" component={IndexStartupContainer} />
+      {isApplicationLoaded && MainNavigator != null && (
+        <Stack.Screen
+          name="Main"
+          component={MainNavigator}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+      )}
+    </Stack.Navigator>
+  )
+}
 
+// @refresh reset
+const ApplicationNavigator = () => {
+  const theme = useTheme()
+
+  /*  <SafeAreaView style={[Layout.fill, { backgroundColor: colors.card }]}>*/
   return (
     <SafeAreaProvider>
       <AppearanceProvider>
@@ -53,18 +68,7 @@ const ApplicationNavigator = () => {
           <StatusBar
             barStyle={theme.darkMode ? 'light-content' : 'dark-content'}
           />
-          <Stack.Navigator headerMode={'none'}>
-            <Stack.Screen name="Startup" component={IndexStartupContainer} />
-            {isApplicationLoaded && MainNavigator != null && (
-              <Stack.Screen
-                name="Main"
-                component={MainNavigator}
-                options={{
-                  animationEnabled: false,
-                }}
-              />
-            )}
-          </Stack.Navigator>
+          <ApplicationNavigation />
         </NavigationContainer>
       </AppearanceProvider>
     </SafeAreaProvider>

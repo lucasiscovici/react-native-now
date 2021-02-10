@@ -2,21 +2,24 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Auth, IndexStartupContainer } from '@/Containers'
 
-import { selectors as authSelectors } from '@/state/auth'
-
-import { actions as meActions, selectors as meSelectors } from '@/state/me'
+// import { actions as meActions, selectors as meSelectors } from '@/State/me'
 
 import { useNavigation } from '@react-navigation/native'
 
 import { IndexExampleContainer } from '@/Containers'
 
+import { useAuth } from '@/Services/Auth'
+import {
+  actions as userActions,
+  selectors as userSelectors,
+} from '@/State/User'
 const AuthenticatedStack = () => {
   const { navigate } = useNavigation()
 
-  const isStatusFinish = meSelectors.isStatusFinish()
+  const isStatusFinish = userSelectors.isStatusFinish()
 
   React.useEffect(() => {
-    meActions.getMe()
+    userActions.getUser({ userId: 1 })
   }, [])
 
   React.useEffect(() => {
@@ -49,9 +52,8 @@ const AuthenticatedStack = () => {
 const Stack = createStackNavigator()
 
 // @refresh reset
-const AuhthenticationMainNavigator = () => {
-  const isAuthenticated = authSelectors.isAuthenticated()
-
+const AuthenticationMainNavigator = () => {
+  const { isAuthenticated } = useAuth()
   return (
     <Stack.Navigator headerMode={'none'}>
       {isAuthenticated ? (
@@ -61,10 +63,14 @@ const AuhthenticationMainNavigator = () => {
           component={AuthenticatedStack}
         />
       ) : (
-        <Stack.Screen name="Login" component={Auth.Login} />
+        <Stack.Screen
+          name="Login"
+          component={Auth.Login}
+          options={{ animationEnabled: false }}
+        />
       )}
     </Stack.Navigator>
   )
 }
 
-export default AuhthenticationMainNavigator
+export default AuthenticationMainNavigator
