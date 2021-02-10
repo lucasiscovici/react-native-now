@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 import './Translations'
-import './Services'
+import { config } from './Services'
 import React from 'react'
 import { ThemeProvider, useGlobalTheme } from '@/Theme'
 import { Provider } from '@/State/store.js'
@@ -18,7 +18,9 @@ const AppWithState = () => {
 const App = () => {
   return (
     <Provider>
-      <AppWithState />
+      <config.AuthProvider>
+        <AppWithState />
+      </config.AuthProvider>
     </Provider>
   )
 }
