@@ -3,8 +3,9 @@ import SafeAreaView from 'react-native-safe-area-view'
 
 export default ({
   onLayoutFinish = () => {},
-  bgColSafeArea1 = 'black',
-  bgColSafeArea2 = 'white',
+  bgCol = 'white',
+  bgColSafeArea1 = bgCol,
+  bgColSafeArea2 = bgCol,
   children,
 }) => {
   const [count, setCount] = React.useState(0)
