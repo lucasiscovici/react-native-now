@@ -82,6 +82,7 @@ export const Sizes = {
   xl,
   xxl,
   max: '100%',
+  auto: 'auto',
 }
 
 export const Breakpoints = {

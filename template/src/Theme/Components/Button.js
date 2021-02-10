@@ -1,10 +1,15 @@
 import React from 'react'
 
 import { TouchableOpacity, View } from 'react-native'
-import { useRestyle, spacing, border, backgroundColor } from '@shopify/restyle'
+import {
+  useRestyle,
+  spacing,
+  border,
+  backgroundColor,
+  all,
+} from '@shopify/restyle'
 import Text from './Text'
-import { createVariant } from '@shopify/restyle'
-import { height, width } from '@/Theme/Custom'
+import { height, width, createVariant } from '@/Theme/Custom'
 
 export const Button = ({
   onPress,
@@ -16,7 +21,7 @@ export const Button = ({
 }) => {
   const variant = createVariant({ themeKey: 'buttonVariants' })
   const props = useRestyle(
-    [variant, spacing, border, backgroundColor, height, width],
+    [...all, variant, spacing, border, backgroundColor, height, width],
     { ...rest, style },
   )
   return (
