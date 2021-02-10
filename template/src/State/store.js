@@ -1,7 +1,4 @@
-import {
-  createStore,
-  // configure,
-} from 'redox'
+import { createStore, configure } from 'redox'
 
 import {
   FLUSH,
@@ -13,25 +10,25 @@ import {
 } from 'redux-persist'
 
 // for react-native
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage'
+
+// for auth-service
+import { config } from '@/Services/Auth'
 
 // if needed (BEFORE IMPORTING SLICES)
-// configure({
-//     modules: {}, // object with modules
-//     usePrf: true, // use default modules PRF
-//     cleanIfCalledMultipleTimes: true, // if configure is called multiples times it's reset the modules
-// })
+configure({
+  modules: { ...config.authModule }, // object with modules
+  // usePrf: true, // use default modules PRF
+  // cleanIfCalledMultipleTimes: true, // if configure is called multiples times it's reset the modules
+})
 
 // slices
 // import {SLICE_NAME} from './FEATURE_DIR'
 import { User } from './User'
 import { Theme } from './Theme'
 import { Startup } from './Startup'
-const {
-  Provider,
-  // store,
-  // clearState,
-} = createStore({
+
+const { Provider, store, clearState } = createStore({
   slices: {
     // initialState: {},
     // SLICE_NAME
@@ -56,13 +53,12 @@ const {
     },
   },
   // combineReducersOpts : {},
-  // reducers: {},
+  // reducers: { ...config.authServiceReducers },
   // for react-native
-  // persist: {storage: AsyncStorage},
+  persist: {
+    storage: AsyncStorage,
+    // whitelist: [...config.persistWhitelist], // auth-service
+  },
 })
-
-export {
-  Provider,
-  // store,
-  // clearState
-}
+config.setStore(store) // postCreateStore
+export { Provider, store, clearState }
