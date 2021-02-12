@@ -1,5 +1,5 @@
 import { Config } from '@/Config'
-import { configure, useAuth } from './auth-service'
+import { configure, useAuth } from 'auth-service'
 
 const callbackAfterLogout = () => {
   const { store, clearState } = require('@/State/store')
@@ -14,6 +14,6 @@ const { config } = configure({
   baseUrlAuth: Config.AUTH_URL,
   textAlertBeforeExpiredLogout: 'Session Expiré, Veuillez vous reconnecter.',
   textAlertBeforeLogout: 'Vous êtes bien déconnecté',
+  logoutIfTokensExpired: true,
 })
-
 export { config, useAuth }
