@@ -11,6 +11,8 @@ import { AppearanceProvider } from 'react-native-appearance'
 import { selectors as startupSelectors } from '@/State/Startup'
 import { navigateAndSimpleReset } from '@/Navigators/Root'
 
+import { Config } from '@/Config'
+
 let MainNavigator
 const Stack = createStackNavigator()
 
@@ -19,7 +21,11 @@ const ApplicationNavigation = () => {
   const applicationIsLoading = startupSelectors.isPending() //useSelector((state) => state.startup.loading)
   useEffect(() => {
     if (MainNavigator == null && !applicationIsLoading) {
-      MainNavigator = require('@/Navigators/AuthentificationMain').default
+      if (Config.auth) {
+        MainNavigator = require('@/Navigators/AuthentificationMain').default
+      } else {
+        MainNavigator = require('@/Navigators/Main').default
+      }
       setIsApplicationLoaded(true)
     }
   }, [applicationIsLoading])
@@ -60,7 +66,6 @@ const ApplicationNavigation = () => {
 const ApplicationNavigator = () => {
   const theme = useTheme()
 
-  /*  <SafeAreaView style={[Layout.fill, { backgroundColor: colors.card }]}>*/
   return (
     <SafeAreaProvider>
       <AppearanceProvider>

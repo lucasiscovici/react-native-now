@@ -1,3 +1,5 @@
+import { Config } from '@/Config'
+
 import { createStore, configure } from 'redox'
 
 import {
@@ -13,11 +15,11 @@ import {
 import AsyncStorage from '@react-native-community/async-storage'
 
 // for auth-service
-import { config } from '@/Services/Auth'
+import { config } from '@/Services'
 
 // if needed (BEFORE IMPORTING SLICES)
 configure({
-  modules: { ...config.authModule }, // object with modules
+  modules: Config?.auth ?? false ? { ...config.authModule } : {}, // object with modules
   // usePrf: true, // use default modules PRF
   // cleanIfCalledMultipleTimes: true, // if configure is called multiples times it's reset the modules
 })
@@ -60,5 +62,4 @@ const { Provider, store, clearState } = createStore({
     // whitelist: [...config.persistWhitelist], // auth-service
   },
 })
-config.setStore(store) // postCreateStore
 export { Provider, store, clearState }

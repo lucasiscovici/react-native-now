@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler'
 import './Translations'
 import { config } from './Services'
+import { Config } from './Config'
 import React from 'react'
 import { ThemeProvider, useGlobalTheme } from '@/Theme'
 import { Provider } from '@/State/store.js'
@@ -10,7 +11,13 @@ const AppWithState = () => {
   const theme = useGlobalTheme()
   return (
     <ThemeProvider theme={theme}>
-      <ApplicationNavigator />
+      {Config?.auth ?? false ? (
+        <config.AuthProvider>
+          <ApplicationNavigator />
+        </config.AuthProvider>
+      ) : (
+        <ApplicationNavigator />
+      )}
     </ThemeProvider>
   )
 }
@@ -18,9 +25,7 @@ const AppWithState = () => {
 const App = () => {
   return (
     <Provider>
-      <config.AuthProvider>
-        <AppWithState />
-      </config.AuthProvider>
+      <AppWithState />
     </Provider>
   )
 }
