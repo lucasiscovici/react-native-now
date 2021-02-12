@@ -1,8 +1,7 @@
 import React from 'react'
 import { Box, Text, Button, TextInput } from '@/Theme'
 import { useAuth } from '@/Services/Auth'
-
-import SafeAreaView2 from '@/Components/SafeAreaView2'
+import { SafeAreaView2, KeyboardAvoidingViewTouchable } from '@/Components'
 
 const Login = (props) => {
   const { loginWithUsernamePassword } = useAuth()
@@ -27,33 +26,35 @@ const Login = (props) => {
   }
   return (
     <SafeAreaView2>
-      <Box flex={1} variant="colCenter" px="s">
-        <Text variant="title" mb="auto" flex={0}>
-          Login
-        </Text>
-        <Box w="max" px={6} flex={1} variant="colCenter">
-          <TextInput
-            variant="login"
-            placeholder="Username"
-            autofocus={true}
-            ref={tiRef}
-            onChangeText={(text) => setUsername(text)}
-          />
+      <KeyboardAvoidingViewTouchable>
+        <Box flex={1} variant="colCenter" px="s">
+          <Text variant="title" mb="auto" flex={0}>
+            Login
+          </Text>
+          <Box w="max" px={6} flex={1} variant="colCenter">
+            <TextInput
+              variant="login"
+              placeholder="Username"
+              autofocus={true}
+              ref={tiRef}
+              onChangeText={(text) => setUsername(text)}
+            />
 
-          <TextInput
-            variant="login"
-            placeholder="Password"
-            onChangeText={(text) => setPassword(text)}
-          />
-          <Button
-            variant="primary"
-            title="Connexion"
-            onPress={onClick}
-            mt="s"
-          />
+            <TextInput
+              variant="login"
+              placeholder="Password"
+              onChangeText={(text) => setPassword(text)}
+            />
+            <Button
+              variant="primary"
+              title="Connexion"
+              onPress={onClick}
+              mt="s"
+            />
+          </Box>
+          {error && <Text color="red">{error}</Text>}
         </Box>
-        {error && <Text color="red">{error}</Text>}
-      </Box>
+      </KeyboardAvoidingViewTouchable>
     </SafeAreaView2>
   )
 }
