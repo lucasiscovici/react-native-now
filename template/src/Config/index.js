@@ -1,8 +1,8 @@
 export const Config = {
   API_URL: 'https://jsonplaceholder.typicode.com/',
   // auth
-  auth: true,
-  AUTH_URL: 'https://jsonplaceholder.typicode.com/',
+  auth: false,
+  AUTH_URL: '',
   clientId: '',
   clientSecret: '',
   // Social - AUTH
