@@ -21,11 +21,13 @@
     "@reduxjs/toolkit": "^1.5.0",
     "@shopify/restyle": "^1.4.0",
     "api-service": "https://github.com/lucasiscoviciMoon/api-service",
+    "auth-service": "https://github.com/lucasiscoviciMoon/auth-service",
     "axios": "^0.21.1",
     "i18next": "^19.8.4",
+    "insert-line": "^1.1.0",
     "lodash.isequal": "^4.5.0",
     "moment": "^2.29.1",
-    "react": "16.13.1",
+    "react": "^17.0.1",
     "react-i18next": "^11.8.5",
     "react-native": "0.63.4",
     "react-native-appearance": "^0.3.4",
@@ -41,6 +43,7 @@
     "redux": "^4.0.5",
     "redux-flipper": "^1.4.2",
     "redux-persist": "^6.0.0",
+    "reverse-line-reader": "^0.2.6",
     "zod": "beta"
   },
   "devDependencies": {
