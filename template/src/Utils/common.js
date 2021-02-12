@@ -18,3 +18,9 @@ export function mergeDeep(...objects) {
     return prev
   }, {})
 }
+
+export const zip = (keys, values) =>
+  keys.reduce((o, k, i) => {
+    o[k] = values[i]
+    return o
+  }, {})
