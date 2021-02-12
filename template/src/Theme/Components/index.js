@@ -1,5 +1,6 @@
 export { default as Box } from './Box'
 export { default as Text } from './Text'
 export { default as TextInput } from './TextInput'
-export { default as Image } from './Image'
+// export { default as Image } from './Image'
+export { default as Image } from './FastImage'
 export { Button } from './Button'
